@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Contact;
+use App\Models\User;
 use App\post;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -18,40 +20,59 @@ class ContactController extends Controller
             return view('contacts', compact('contacts'));
         }
 
-        public function show(Contact $contact)
-        {
-            return view('contacts/show',compact('contact'));
+        public function show()
+        {   
+            $contacts = Auth::user()->contacts;
+            //$contacts = User::find(2)->contacts;
+
+            return view('contacts/show',compact('contacts'));
         }
 
        
         //show the form for creating a contact
         public function create()
         {
-            $user = User::find(1);
+            
+            return Auth::user();
+            // $user = User::find(1);
 
-            $contacts = $user->contacts;
+            // $contacts = $user->contacts;
 
 
-            return view ('contacts/create', compact('contacts'));
+            // return view ('contacts/create', compact('contacts'));
         }
 
         public function store(Request $request)
-        {      
-            //1 Take the input from the request
-            $firstname=$request->input('firstname');
-            $lastname = $request->input ('lastname');
-            $telephone = $request->input ('telephone');
-            $email = $request->input ('email');
+        {
+            $input = $request->validate([
+                'firstname' => 'required|max:255',
+                'lastname' => 'required',
+                'telephone'=> 'required|min:11',
+                'email'=> 'required|unique:contacts',
+
+            ]);
+
+            // $contact = Contact::create([
+            //     'user_id'=> Auth::id(),
+            //     'user_id'=> Auth::user()->id
+            //]);
+
+             
+                //1 Take the input from the request
+                $firstname=$request->input('firstname');
+                $lastname = $request->input ('lastname');
+                $telephone = $request->input ('telephone');
+                $email = $request->input ('email');
             
 
-            //2 create a new model of a contact (instance + row)
+           // 2 create a new model of a contact (instance + row)
 
             $contact = Contact::create([
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'telephone'=> $telephone,
                 'email' => $email,
-                'user_id' => 1,
+                'user_id'=> Auth::id(),
             ]);
             //3 Return a redirect to the detail page for the movie
             return redirect($contact->url());

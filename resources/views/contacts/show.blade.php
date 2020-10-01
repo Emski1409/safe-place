@@ -6,11 +6,11 @@
 @endsection
 
 @section('content') 
-
+  {{$contacts}}
   <div class="container">
     <div class= "row">
       <div class= "column-md-4">
-
+        @foreach($contacts as $contact)
         <div class="card">
         <div style =color:black class="card-body">
          <h2>
@@ -21,6 +21,7 @@
           </p>
         </div>
         </div>
+        @endforeach
       </div>
     </div>
   </div>

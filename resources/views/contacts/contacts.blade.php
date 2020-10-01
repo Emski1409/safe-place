@@ -7,6 +7,7 @@
 
 <body id="my_img"> 
   {{--  <div class="card-body">
+    <i class="far fa-address-book"></i> - use as card image
               <h2>
                 {{ $contact->firstname}}
               </h2>
@@ -19,14 +20,17 @@
     --}}
 
 
-
+ 
   <div id="contacts" class="container" >
     <h3>Add A Contact</h3>
       <form action="{{ route('contacts.store') }}" method="POST">
       @csrf
+      @foreach ($errors->all() as $error)
+      {{ $error }}<br/>
+      @endforeach
         <div class="form-row">
           <div class="col">
-            <input type="text" name="firstname" class="form-control" placeholder="firstname">
+            <input type="text" name="firstname" class="form-control"  placeholder="firstname">
           </div>
           <div class="col">
             <input type="text" name="lastname" class="form-control" placeholder="lastname">

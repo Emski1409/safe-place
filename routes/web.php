@@ -22,10 +22,10 @@ Route::get('/home', function()
    return View::make('pages.home');
 })->name('homepage');
 
-Route::get('/login', function()
-{
-   return View::make('pages.login');
-})->name('login');
+// Route::get('/login', function()
+// {
+//    return View::make('pages.login');
+// })->name('login');
 
 Route::get('/demo', function () 
 {
@@ -104,3 +104,7 @@ Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.sto
 
   //show form
 //Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia\Inertia::render('Dashboard');
+})->name('dashboard');
