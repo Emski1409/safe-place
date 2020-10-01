@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,6 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 
 
 
@@ -63,12 +62,45 @@ Route::get('/demo', function ()
       return View::make('pages.personal_page');
   })->name('personal');
 
-  Route::get('/contacts', function () 
-  {
-      return View::make('pages.contacts');
-  })->name('contacts');
+ 
 
   Route::get('/imageupload', function () 
   {
       return View::make('pages.image_page');
   })->name('imageupload');
+
+
+  Route::get('/contacts', function () 
+  {
+      return View::make('contacts.contacts');
+  })->name('contactpage');
+
+// Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+
+ Route::get('contacts.contacts/{contact}', [ContactController::class, 'show'])->name('contacts.show');
+
+Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/config', function () {
+//     return config('database');
+// });
+
+//   Route::get('/index', [ContactController::class, 'index'])->name('contacts.index');
+
+  //show form
+//Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');

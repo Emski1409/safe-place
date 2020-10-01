@@ -21,7 +21,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('personal') }}">My Page</a>
-                  <a class="dropdown-item" href="{{ route('contacts') }}">Contacts</a>
+                  <a class="dropdown-item" href="{{ route('contactpage') }}">Contacts</a>
                   <a class="dropdown-item" href="{{ route('imageupload') }}">My Images</a>
                   <a class="dropdown-item" href="{{ route('general') }}">Get Help</a>
                   <a class="dropdown-item" href="#">Local Resources</a>

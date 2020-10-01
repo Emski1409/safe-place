@@ -10,8 +10,9 @@
               
          </header>
           @yield('jumbo')
-          <div id="main" class="row">
-                  @yield('content')
+
+          <div id="main">
+            @yield('content')
           </div>
         </div>
     </body>
