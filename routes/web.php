@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +16,10 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-
-
-Route::get('/home', function()
+Route::get('/', function()
 {
    return View::make('pages.home');
 })->name('homepage');
-
-// Route::get('/login', function()
-// {
-//    return View::make('pages.login');
-// })->name('login');
-
-Route::get('/demo', function () 
-{
-    return View::make('demo');
- });
 
  Route::get('/includes', function () 
 {
@@ -46,11 +35,6 @@ Route::get('/demo', function ()
  {
      return View::make('widgets/upload');
   });
-
-  Route::get('/signup', function () 
-  {
-      return View::make('pages.signup');
-   })->name("signup");
   
    Route::get('/general', function () 
   {
@@ -62,25 +46,30 @@ Route::get('/demo', function ()
       return View::make('pages.personal_page');
   })->name('personal');
 
- 
-
-  Route::get('/imageupload', function () 
-  {
-      return View::make('pages.image_page');
-  })->name('imageupload');
-
-
   Route::get('/contacts', function () 
   {
       return View::make('contacts.contacts');
   })->name('contactpage');
 
-// Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 
  Route::get('contacts.contacts/{contact}', [ContactController::class, 'show'])->name('contacts.show');
 
 Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.store');
 
+Route::get('/image', [ImageUploadController::class,'show'])->name('image');
+
+Route::post('/image', [ImageUploadController::class,'store'])->name('image.upload');
+
+//middleware routes
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/personal', function () 
+{
+    return View::make('pages.personal_page');
+})->name('personal');
+
+Route::get('/dashboard', [function () {
+    return Inertia\Inertia::render('Dashboard');
+}])->name('dashboard');
 
 
 
@@ -91,9 +80,22 @@ Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.sto
 
 
 
+//   Route::get('/signup', function () 
+//   {
+//       return View::make('pages.signup');
+//    })->name("signup");
 
+// Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 
+// Route::get('/home', function()
+// {
+//    return View::make('pages.home');
+// })->name('homepage');
 
+// Route::get('/demo', function () 
+// {
+//     return View::make('demo');
+//  });
 
 
 // Route::get('/config', function () {
@@ -105,6 +107,9 @@ Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.sto
   //show form
 //Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
-})->name('dashboard');
+
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia\Inertia::render('Dashboard');
+// })->name('dashboard');
+

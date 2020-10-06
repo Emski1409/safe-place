@@ -21,6 +21,19 @@
  
 
 }
+.containerHome {
+
+  padding-left: 0px;
+  padding-right: 0px;
+  /* Container holding the image and the text */
+
+  position: relative;
+  text-align: center;
+  color: white;
+  background-color: teal;
+ 
+
+}
 
 .centered {
   position: absolute;
@@ -65,13 +78,21 @@ h5 {
 max-height: 100vh;
 }
 
-#contacts, #imageUpload {
+#contacts {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#imageUpload{
   border: solid white 5px;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
 
 
 

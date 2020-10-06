@@ -23,7 +23,7 @@ class ContactController extends Controller
         public function show()
         {   
             $contacts = Auth::user()->contacts;
-            //$contacts = User::find(2)->contacts;
+           
 
             return view('contacts/show',compact('contacts'));
         }
@@ -34,12 +34,8 @@ class ContactController extends Controller
         {
             
             return Auth::user();
-            // $user = User::find(1);
+           
 
-            // $contacts = $user->contacts;
-
-
-            // return view ('contacts/create', compact('contacts'));
         }
 
         public function store(Request $request)
@@ -52,10 +48,6 @@ class ContactController extends Controller
 
             ]);
 
-            // $contact = Contact::create([
-            //     'user_id'=> Auth::id(),
-            //     'user_id'=> Auth::user()->id
-            //]);
 
              
                 //1 Take the input from the request
