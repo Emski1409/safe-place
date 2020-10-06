@@ -31,12 +31,17 @@ class ImageUploadController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+             $input=request()->validate([
 
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
         ]);
 
+            $image=$request->input('image'); 
+
+            $UserImages = UserImaages::create([
+                'image' => $image,
+                'user_id'=> Auth::id(),
+            ]);
   
 
         $imageName = time().'.'.request()->image->getClientOriginalExtension();

@@ -64,6 +64,7 @@ h5 {
   color:black;
 }
 .jumbotron{
+  background-color: transparent;
   color:black;
 }
 
@@ -93,6 +94,15 @@ max-height: 100vh;
   padding-bottom: 50px;
 }
 
+#step{
+  color:black;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+#wmhd{
+  color: black;
+  background-color: rgb(92, 150, 211);
+}
 
 
 

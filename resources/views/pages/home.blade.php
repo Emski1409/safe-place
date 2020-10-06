@@ -10,7 +10,13 @@
             <br>
             <button type="button" class="btn btn-secondary btn-lg"><a href="{{ route('general') }}">Find out more</a></button>
           </div>
+        <div id="wmhd">
+        <h1> World Mental Health Day October 10th 2020!</h1>
     </div>
+    </div>  
+   </div>
+
+
 
  
 
