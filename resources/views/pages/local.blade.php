@@ -5,8 +5,8 @@
 @stop
 @section('content')
 
-<body id="my_img"> 
-  <div class="container">
+<body> 
+  <div  id="local"class="container">
     <div class = "row-center">
       <h1> Find my local mind group <h1>
     </div>

@@ -1,8 +1,8 @@
 .img-fluid { 
   
   /* Full height */
-  height: 100vh; 
-  width: 100%;
+  height: 500px; 
+  width: 500px;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -48,8 +48,8 @@
   position:center;
 }
 
-#my_img{
-  background-color:teal;
+/* #my_img{
+  background-color:teal; */
 
 /* Full height */
 height: 100vh; 
@@ -64,7 +64,7 @@ h5 {
   color:black;
 }
 .jumbotron{
-  background-color: transparent;
+  background-color: teal;
   color:black;
 }
 
@@ -92,6 +92,8 @@ max-height: 100vh;
   padding-right: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
+  border: solid 2px black;
+  background-color: teal;
 }
 
 #step{
@@ -120,4 +122,19 @@ max-height: 100vh;
   background-image:"{{url('/images/spotify.png')}}";
 }
 
+#welcome{
+  color:black;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+#welcome2{
+  color:black;
+  font-family: "Lucida Console", Monaco, monospace;
+  border: solid 2px black;
+}
+
+#local{
+  color: black;
+  font-family: "Lucida Console", Monaco, monospace;
+}
 

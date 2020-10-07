@@ -28,6 +28,7 @@
       @foreach ($errors->all() as $error)
       {{ $error }}<br/>
       @endforeach
+      <div id="imageUpload">
         <div class="form-row">
           <div class="col">
             <input type="text" name="firstname" class="form-control"  placeholder="firstname">
@@ -46,6 +47,7 @@
         </div>
         <input type="submit" value="Submit!" >
       </form>
+  </div>
   </div>
 </body>
 
