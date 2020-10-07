@@ -11,12 +11,11 @@
 <body id="my_img"> 
     <div class="container">
       <div class="row">
+          @foreach($images as $image)
             <div class="col-md-6 ">
-              <img src="https://picsum.photos/200/300" class="img-fluid" alt="tiger"> 
+              <img src="{{ $image->path }}" class="img-fluid" alt="tiger"> 
             </div>
-            <div class="col-md-6">
-              <img src="https://picsum.photos/200/300"class="img-fluid" alt="tiger"> 
-            </div>
+          @endforeach
       </div>   
       <br>
       <br>

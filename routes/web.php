@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\BlogController;
 
 /*
@@ -42,11 +43,6 @@ Route::get('/', function()
       return View::make('pages.general');
   })->name('general');
 
-  Route::get('/personal', function () 
-  {
-      return View::make('pages.personal_page');
-  })->name('personal');
-
   Route::get('/contacts', function () 
   {
       return View::make('contacts.contacts');
@@ -67,13 +63,12 @@ Route::get('/image', [ImageController::class,'show'])->name('image');
 
 Route::post('/imageUpload', [ImageController::class,'store'])->name('image.path');
 Route::delete('/image/{image}',[ImageController::class,'destroy'])->name('image.destroy');
+Route::put('/image/{image}',[ImageController::class,'update'])->name('image.put');
 
+//Route::get('/personal', [PersonalController::class,'show'])->name('personal');
 //middleware routes
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/personal', function () 
-{
-    return View::make('pages.personal_page');
-})->name('personal');
+Route::middleware(['auth:sanctum', 'verified'])->get('/personal', [PersonalController::class,'show'])->name('personal');
 
 Route::get('/dashboard', [function () {
     return Inertia\Inertia::render('Dashboard');
