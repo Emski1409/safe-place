@@ -116,6 +116,8 @@ max-height: 100vh;
   background-color:black;
   text-align: center;
 }
-
+#spotify{
+  background-image:"{{url('/images/spotify.png')}}";
+}
 
 

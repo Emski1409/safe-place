@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,11 @@ Route::get('/', function()
       return View::make('contacts.contacts');
   })->name('contactpage');
 
+  Route::get('/local', function () 
+  {
+      return View::make('pages.local');
+  })->name('local');
+
 
  Route::get('contacts.contacts/{contact}', [ContactController::class, 'show'])->name('contacts.show');
 
@@ -59,7 +65,8 @@ Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.sto
 
 Route::get('/image', [ImageController::class,'show'])->name('image');
 
-Route::post('/imageUpload', [ImageController::class,'store'])->name('image.upload');
+Route::post('/imageUpload', [ImageController::class,'store'])->name('image.path');
+Route::delete('/image.path/{image.path}',[ImageController::class,'destroy'])->name('image.destroy');
 
 //middleware routes
 

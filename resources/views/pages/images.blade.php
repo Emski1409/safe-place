@@ -11,13 +11,47 @@
             @foreach($images as $image)
                 <div class="col-md-3 ">
                   <img src="{{ $image->path }}" class="img-thumbnail" alt="tiger"> 
+                  <form action="{{route('image.destroy', $image)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type='submit' class="btn btn-danger delete_user" action="delete" id="{{$image->path}}">
+                    <button>Favourite</button>
+                  </form>
+
                 </div>
             @endforeach
           </div>   
     <br>
     <br>
     </div> 
+      <script>
+        window.onload=function(){
+              document.getElementById("{{$image->path}}").addEventListener("click", deleteRequest);
 
+            function deleteRequest(){
+              let xhr = new XMLHttpRequest();
+
+              xhr.open("DELETE", "{{route('image.destroy', $image)}}");
+              xhr.setRequestHeader('X-CSRF-TOKEN', "{{csrf_token()}}");
+
+              xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4) {
+                  window.location.replace("{{route('image.path')}}");
+              }
+              }
+              xhr.send();
+
+  }
+}
+
+      // $('.delete_user').click(function(){
+      //   if( confirm('Are you sure?') )
+      //   {
+      //     var id = $(this).attr('id');
+      //     // Make an ajax call to delete the record and pass the id to identify the record
+      //   }
+      // });
+</script>
 
     <div id="imageUpload" class="container" >
       <h3 id="imageadd">Add an Image</h3>
@@ -37,7 +71,7 @@
 
         </div>
 
-        <img src="images/{{ Session::get('image') }}">
+        <img src="images/{{ Session::get('image->path') }}">
 
      @endif
 

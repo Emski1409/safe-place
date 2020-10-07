@@ -30,7 +30,7 @@ class ImageController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('image')->store('images', 'public');
+        $path = 'storage/'.$request->file('image')->store('images', 'public');
 
          $image = Image::create([
              'path'=>$path,
@@ -70,4 +70,16 @@ class ImageController extends Controller
            
         return view('pages/images',compact('images'));
     }
+    
+    public function destroy(Image $image)
+    {
+        $image = Image::Find($image);
+        $image->delete();
+        
+
+        return redirect($image->url());
+       
+    }
+
+   
 }

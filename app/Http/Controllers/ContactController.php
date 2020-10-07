@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\User;
-use App\post;
+use App\blog;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
