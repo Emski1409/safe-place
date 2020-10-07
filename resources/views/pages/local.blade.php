@@ -6,7 +6,7 @@
 @section('content')
 
 <body> 
-  <div  id="local"class="container">
+  <div  id="local"class="container align-left">
     <div class = "row-center">
       <h1> Find my local mind group <h1>
     </div>
