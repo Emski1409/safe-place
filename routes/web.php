@@ -66,7 +66,7 @@ Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.sto
 Route::get('/image', [ImageController::class,'show'])->name('image');
 
 Route::post('/imageUpload', [ImageController::class,'store'])->name('image.path');
-Route::delete('/image.path/{image.path}',[ImageController::class,'destroy'])->name('image.destroy');
+Route::delete('/image/{image}',[ImageController::class,'destroy'])->name('image.destroy');
 
 //middleware routes
 

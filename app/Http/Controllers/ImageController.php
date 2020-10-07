@@ -73,11 +73,10 @@ class ImageController extends Controller
     
     public function destroy(Image $image)
     {
-        $image = Image::Find($image);
         $image->delete();
         
 
-        return redirect($image->url());
+        return redirect("/image");
        
     }
 
