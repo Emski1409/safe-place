@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Contact::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

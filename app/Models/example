@@ -1,0 +1,5 @@
+images
+id path user_id favourited (boolean)
+1  ..   5       false
+2   ..  5       true
+3  ..   18      false

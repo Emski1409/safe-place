@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,9 +56,10 @@ Route::get('/', function()
 
 Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.store');
 
-Route::get('/image', [ImageUploadController::class,'show'])->name('image');
 
-Route::post('/image', [ImageUploadController::class,'store'])->name('image.upload');
+Route::get('/image', [ImageController::class,'show'])->name('image');
+
+Route::post('/imageUpload', [ImageController::class,'store'])->name('image.upload');
 
 //middleware routes
 
@@ -70,6 +71,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/personal', function ()
 Route::get('/dashboard', [function () {
     return Inertia\Inertia::render('Dashboard');
 }])->name('dashboard');
+
+
 
 
 

@@ -5,9 +5,11 @@
     </head>
     <body>
         <div class="container-fluid"> 
+          @include('includes.upper_header')
           @include('includes.nav')
+          
           <header class="row">
-              
+           
          </header>
           @yield('jumbo')
 
@@ -15,5 +17,6 @@
             @yield('content')
           </div>
         </div>
+        <!-- @include('includes.footer') -->
     </body>
 </html>

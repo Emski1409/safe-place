@@ -66,7 +66,7 @@ class ContactController extends Controller
                 'email' => $email,
                 'user_id'=> Auth::id(),
             ]);
-            //3 Return a redirect to the detail page for the movie
+            //3 Return a redirect to the detail page for the contact
             return redirect($contact->url());
         }
  }

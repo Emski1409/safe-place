@@ -2,35 +2,28 @@
 @section('jumbo')
   @include('widgets.jumbo', ['message' => 
     'My Images'])
-@stop
+@endsection
 @section('content')
 
 <body id="my_img"> 
     <div class="container">
           <div class="row">
+            @foreach($images as $image)
                 <div class="col-md-3 ">
-                  <img src="https://picsum.photos/200/300" class="img-thumbnail" alt="tiger"> 
+                  <img src="{{ $image->path }}" class="img-thumbnail" alt="tiger"> 
                 </div>
-                <div class="col-md-3">
-                  <img src="https://picsum.photos/200/300"class="img-thumbnail" alt="tiger">
-                </div>
-                <div class="col-md-3">
-                    <img src="https://picsum.photos/200/300" class="img-thumbnail" alt="tiger"> 
-                </div>
-                <div class="col-md-3">
-                  <img src="https://picsum.photos/200/300" class="img-thumbnail" alt="tiger"> 
-                </div>
-          </div>     
-
+            @endforeach
+          </div>   
     <br>
     <br>
     </div> 
 
+
     <div id="imageUpload" class="container" >
-      <h3>Add an Image</h3>
+      <h3 id="imageadd">Add an Image</h3>
     <div class="panel panel-primary">
 
-      <!-- <div class="panel-heading"><h2>Laravel 5.7 image upload example - HDTuto.com</h2></div> -->
+    
 
     <div class="panel-body">
 
@@ -66,17 +59,17 @@
         </div>
       @endif
         
-      <form action="{{ route('image.upload') }}" method="POST" enctype="multipart/form-data">
-      @csrf
+      <form action="{{ route('image.path') }}" method="POST" enctype="multipart/form-data">
+        @csrf
 
         <div class="row">
-            <div class="col-md-6">
-              <input type="file" name="image" class="form-control">
-            </div>
+          <div class="col-md-6">
+            <input type="file" name="image" class="form-control">
+          </div>
 
-            <div class="col-md-6">
-              <button type="submit" class="btn btn-success">Upload</button>
-            </div>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-success">Upload</button>
+          </div>
         </div>
 
       </form>
@@ -88,4 +81,4 @@
 </div>
 </body>
 
-@stop
+@endsection

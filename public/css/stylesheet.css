@@ -49,7 +49,7 @@
 }
 
 #my_img{
-  background-image: url("/images/beach.jpg" );
+  background-color:teal;
 
 /* Full height */
 height: 100vh; 
@@ -87,7 +87,7 @@ max-height: 100vh;
 }
 
 #imageUpload{
-  border: solid white 5px;
+  /* border: solid black 5px; */
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 50px;
@@ -104,6 +104,18 @@ max-height: 100vh;
   background-color: rgb(92, 150, 211);
 }
 
+#imageadd{
+  color:black;
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:black;
+  text-align: center;
+}
 
 
 
