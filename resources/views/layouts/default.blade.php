@@ -5,7 +5,6 @@
     </head>
     <body>
         <div class="container-fluid"> 
-          @include('includes.upper_header')
           @include('includes.nav')
           
           <header class="row">
