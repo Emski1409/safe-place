@@ -80,5 +80,10 @@ class ImageController extends Controller
        
     }
 
+    public function update(Image $image) {
+        $image->update(['favourited'=>!$image->favorited()]);
+        return redirect("/image");
+    }
+
    
 }

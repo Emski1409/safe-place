@@ -7,51 +7,34 @@
 
 <body id="my_img"> 
     <div class="container">
-          <div class="row">
-            @foreach($images as $image)
-                <div class="col-md-3 ">
-                  <img src="{{ $image->path }}" class="img-thumbnail" alt="tiger"> 
-                  <form action="{{route('image.destroy', $image)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input type='submit' class="btn btn-danger delete_user" action="delete" id="{{$image->path}}">
-                    <button>Favourite</button>
-                  </form>
-
+        <div class="row">
+          @foreach($images as $image)
+            <div class="col-md-3 ">
+              <form action="{{route('image.destroy', $image)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <div style="position:relative;">
+                  <button type="submit" class="close AClass" style="z-index: 1; right: 0; position: absolute; color: red;">
+                    <span>&times;</span>
+                  </button>
+                  <img src="{{ $image->path }}" class="img-thumbnail" alt="tiger" style="width: 100%;"> 
                 </div>
-            @endforeach
-          </div>   
+              </form>
+              <form action="{{route('image.put', $image)}}" method="post">
+                @csrf
+                @method('PUT')
+                @if($image->favourited)
+                <button class="btn btn-success">favourite</button>
+                @else
+                <button class="btn btn-secondary">favourite</button>
+                @endif
+              </form>
+            </div>
+          @endforeach
+        </div>   
     <br>
     <br>
     </div> 
-      <script>
-        window.onload=function(){
-              document.getElementById("{{$image->path}}").addEventListener("click", deleteRequest);
-
-            function deleteRequest(){
-              let xhr = new XMLHttpRequest();
-
-              xhr.open("DELETE", "{{route('image.destroy', $image)}}");
-              xhr.setRequestHeader('X-CSRF-TOKEN', "{{csrf_token()}}");
-
-              xhr.onreadystatechange = function () {
-              if (xhr.readyState === 4) {
-                  window.location.replace("{{route('image.path')}}");
-              }
-              }
-              xhr.send();
-
-  }
-}
-
-      // $('.delete_user').click(function(){
-      //   if( confirm('Are you sure?') )
-      //   {
-      //     var id = $(this).attr('id');
-      //     // Make an ajax call to delete the record and pass the id to identify the record
-      //   }
-      // });
-</script>
 
     <div id="imageUpload" class="container" >
       <h3 id="imageadd">Add an Image</h3>

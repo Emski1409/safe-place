@@ -19,8 +19,11 @@ class Image extends Model
     }
 
     public function url()
-{
+    {
     return route('contacts.show',$this->id);
-}
+    }
+    public function favorited() {
+        return $this->favourited;
+    }
 };
 
