@@ -5,50 +5,49 @@
 @stop
 @section('content')
 <body>
- 
-  {{--  <div class="card-body">
-    <i class="far fa-address-book"></i> - use as card image
-              <h2>
-                {{ $diary->title}}
-              </h2>
-              
-
-              <p>
-                {{ $diary->date }}
-              </p>
-              <p>
-                {{ $diary->comment}}
-              </p>
-      </div>
-    --}}
 
   <div class="container">
         <div class="row">
           @foreach($diarys as $diary)
-            <div class="col-md-3 ">
-              <form action="{{route('diary', $diary)}}" method="POST">
+          <form action="{{route('diary.destroy', $diary)}}" method="post">
                 @csrf
+                @method('DELETE')
+                <div style="position:relative;">
+                  <button type="submit" class="close AClass" style="z-index: 1; right: 0; position: absolute; color: red;">
+                    <span>&times;</span>
+                  </button>
+                  <div class="card-body">
+                    <h2>
+                      {{ $diary->Title }}
+                    </h2>
+                    <p>
+                      {{ $diary->date }}
+                    </p>
+                    <p>
+                      {{ $diary->Comment }}
+                    </p>
+                  </div>
                 </div>
               </form>
-            </div>
           @endforeach
         </div>   
     <br>
     <br>
     </div> 
   <div class="container">
-  <form>
+  <form action="{{route('diary')}}" method="post">
+    @csrf
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Title">
+      <input type="text" class="form-control" placeholder="Title" name="title">
     </div>
     <div class="col">
-      <input type="integer" class="form-control" placeholder="Date">
+      <input type="integer" class="form-control" placeholder="Date" name="date">
     </div>
   </div>
     <div class="form-group">
       <label for="comment">Comment:</label>
-      <textarea class="form-control" rows="5" id="comment"></textarea>
+      <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
      </div>
      <input type="submit" value="Submit!" >
   </form>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Diary extends Model
 {
     protected $fillable = [
-        'Title',
+        'title',
         'date',
         'comment',
         'user_id'
@@ -20,8 +20,8 @@ class Diary extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function url()
-    // {
-    // return route('diary.show',$this->id);
-    // }
+    public function url()
+    {
+        return route('diary.show',$this->id);
+    }
 }
