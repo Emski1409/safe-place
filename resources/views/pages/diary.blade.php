@@ -4,7 +4,7 @@
     'Mood Diary'])
 @stop
 @section('content')
-<body>
+<body id="my_img">
 
   <div class="container">
         <div class="row">

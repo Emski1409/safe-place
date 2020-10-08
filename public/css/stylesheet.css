@@ -48,8 +48,8 @@
   position:center;
 }
 
-/* #my_img{
-  background-color:teal; */
+#my_img{
+  background-color:rgb(0,128,128);background:linear-gradient(174deg, rgba(0,128,128,1) 12%, rgba(72,75,75,0.9430147058823529) 69%)";
 
 /* Full height */
 height: 100vh; 
