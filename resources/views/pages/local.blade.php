@@ -4,69 +4,73 @@
     'Whats in my local area?'])
 @stop
 @section('content')
+<script type="text/javascript">    
+		//declare namespace
+		var up206b = {};
+ 
+		//declare map
+		var map;
+ 
+		function trace(message) 
+		{
+			if (typeof console != 'undefined') 
+			{
+				console.log(message);
+			}
+		}
+ 
+		//Function that gets run when the document loads
+		up206b.initialize = function()
+		{
+			var latlng = new google.maps.LatLng(34.070264, -118.4440562);
+			var myOptions = {
+				zoom: 13,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		}
+    //set the geocoder
+var geocoder = new google.maps.Geocoder();
+//geocode function
+up206b.geocode = function() 
+{
+	var address = $('#address').val();
+	geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) 
+		{
+			map.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+				map: map, 
+				position: results[0].geometry.location
+			});
+		} 
+		else 
+		{
+			alert("Geocode was not successful for the following reason: " + status);
+		}
+	});
+}
+	</script> 
 
-<body> 
-  <div  id="local"class="container align-left">
-    <div class = "row-center">
-      <h1> Find my local mind group <h1>
+<div id="map">
+<body onload="up206b.initialize()">
+  <!-- side panel div container -->
+  <div
+    style="position:absolute; width:380px; height: 100%; overflow:auto; float:left; padding-left:10px; padding-right:10px;">
+    <h1>Map Search</h1>
+    <!-- search box -->
+    <div style="border:1px solid #ccc; background:#e5e5e5; padding:10px;">
+      <input type="text" id="address">
+      <input type="button" value="find" onClick="up206b.geocode()">
     </div>
-    <br>
-    <br>
-    <div class = "row">   
-      
-      <h2>Enter your postcode below:</h2>  
-    
-    </div>
-       
-<div class ="container">
-      <label>Please enter your postcode</label>
-      <input id="lookup_field" type="text" /><br>
-      
-
-      <!-- This is your existing form -->
-      <label>Address Line One</label>
-      <input id="first_line" type="text" /><br>
-
-      <label>Address Line Two</label>
-      <input id="second_line" type="text" /><br>
-
-      <label>Town</label>
-      <input id="town" type="text" /><br>
-
-      <label>Postcode</label>
-      <input id="postcode" type="text" />
-
- </div> 
- </div> 
- <script>
-  
-      $('#lookup_field').setupPostcodeLookup({
-    // Add your API key
-    api_key: 'ak_htaapr1fkpQCzbA66WHfMRAIjotF5',
-  // Identify your fields with CSS selectors
-  output_fields: {
-      line_1: '#first_line',  
-      line_2: '#second_line',         
-      post_town: '#town',
-      postcode: '#postcode'
-  }
-});
-
-</script>
-
-  <div class="container">
-
-   
-      <iframe
-        width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?q=newport+mind
-        &key=AIzaSyCGTPyCPmK7yyrAJkAHqq4tyGwok6Ptv58" allowfullscreen>
-      </iframe>
-
   </div>
   </div>
+  <!-- map div container -->
+  <div id="map_canvas" style="height:100%; margin-left:400px;"></div>
+</body>
+</div>
+
 
  
 @endsection

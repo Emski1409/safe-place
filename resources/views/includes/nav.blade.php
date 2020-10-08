@@ -27,7 +27,8 @@
                   <a class="dropdown-item" href="{{ route('image') }}">My Images</a>
                   <a class="dropdown-item" href="{{ route('general') }}">Get Help</a>
                   <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
-                  <a class="dropdown-item" href="#">Local Resources</a>
+                  <a class="dropdown-item" href="{{ route('local') }}">Local Resources</a>
+                  <a class="dropdown-item" href="{{ route('diary') }}">Mood Diary</a>
                 </div>
               </li>
             </ul>

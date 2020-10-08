@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Image::class);
     }
+
+    public function diarys()
+    {
+        return $this->hasMany(Diary::class);
+    }
 }

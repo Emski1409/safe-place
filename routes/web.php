@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PersonalController;
-use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/personal', [PersonalContr
 Route::get('/dashboard', [function () {
     return Inertia\Inertia::render('Dashboard');
 }])->name('dashboard');
+
+//diary routes
+// Route::get('/diary', function () 
+// {
+//     return View::make('pages.diary');
+// })->name('diary');
+Route::get('/diary', [DiaryController::class,'show'])->name('diary');
+Route::post('/diary',[DiaryController::class, 'store'])->name('diary.store');
+Route::delete('/diary/{diary}',[DiaryController::class,'destroy'])->name('diary.destroy');
 
 
 

@@ -137,4 +137,50 @@ max-height: 100vh;
   color: black;
   font-family: "Lucida Console", Monaco, monospace;
 }
+#map_canvas { height: 100% }
 
+
+html {
+  height: 100%
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
+#map{
+  color: black;
+}
+
+#diary{
+  color: black;
+}
+
+#fav{
+  border: solid 1px black;
+}
+
+#personallinks{
+  border: solid 1px black;
+}
+
+#hp1{
+  max-height: 200px;
+}
+
+.col-container {
+  display: table;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.col {
+  display: table-cell;
+  padding: 16px;
+}
+
+#hp2{
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

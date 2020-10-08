@@ -40,12 +40,6 @@ class ImageController extends Controller
          ]);   
 
 
-        // $imageUpload = Auth::user()->imageUploads()->create([
-        //     'path' => $path,
-        //     'favourited' => false
-        // ]);
-
-
         $imageName = time().'.'.request()->image->getClientOriginalExtension();
 
   
