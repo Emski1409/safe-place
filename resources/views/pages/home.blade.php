@@ -10,8 +10,8 @@
     <br>
     <div class="col-container">
   <div class="row">    
-  <div class="col" style="background:blue">
-    <img src="/images/logo2.png" class="img-fluid" alt="Responsive image"> 
+  <div class="col" style="background:black">
+    <img src="/images/logo2.png" class="img-fluid max-width: 100vh" alt="Responsive image"> 
   </div>
   <div class="col" style="background:blue">   
       <h1 style="color: black;"> Whats Your Safe Place?</h1>
@@ -20,7 +20,7 @@
   </div> 
   </div>
   <div class="row">
-  <div class="col" style="background:aquamarine; padding-left: 30px; ">
+  <div class="col" style="background:blue; padding-left: 30px; ">
     <h1>Local Support Groups</h1>
     <br>
     <br>
@@ -39,18 +39,17 @@
 
   </div>
   </div>
-  <div class="row ">
-  <div class="col" style="background:teal;padding-left: 30px;">
-          <h1> World Mental Health Day October 10th 2020!</h1>
-          <p>Take a positive step to improve your mental health today!</p>
-          <p>Click the button to sign up today!</p>
-          <button type="button" class="btn btn-secondary btn-lg centred"><a href="{{ route('general') }}">Find local groups</a></button> 
-           <div class="column-md-12" style="background:teal">
-          <img src="/images/wmhd.jpg" class="img-fluid" alt="Responsive image justify-content-center"> 
-          </div>
-         
+  <div class="col-container">
+  <div class="row">    
+  <div class="col" style="background:blue">
+    <img src="/images/wmhd.jpg" class="rounded" alt="Responsive image"> 
   </div>
-</div>
+  <div class="col" style="background:blue">   
+      <h1 style="color: black;"> World Mental Health Day October 10th 2020!</h1>
+      <p id="hp2">Take a positive step to improve your mental health today - Click the button to sign up today! <p> 
+    <button type="button" class="btn btn-secondary btn-lg centred"><a href="{{ route('general') }}">Sign Up Here!</a></button>          
+  </div> 
+  </div>
 
 </body>
 
