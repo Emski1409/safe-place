@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('jumbo')
   @include('widgets.jumbo', ['message' => 
-    '{{Auth::User(users)->name}} Safe Place'])
+    'My Safe Place'])
 @stop
 
 @section('content')

@@ -84,6 +84,16 @@ Route::get('/diary', [DiaryController::class,'show'])->name('diary');
 Route::post('/diary',[DiaryController::class, 'store'])->name('diary.store');
 Route::delete('/diary/{diary}',[DiaryController::class,'destroy'])->name('diary.destroy');
 
+//validate
+
+Route::get('/vaidate/{user}', function (Request $request) {
+    if (! $request->hasValidSignature()) {
+        abort(401);
+    }
+
+    // ...
+})->name('validate');
+
 
 
 

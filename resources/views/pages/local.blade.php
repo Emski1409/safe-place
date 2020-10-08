@@ -75,6 +75,7 @@
   <!-- side panel div container -->
   <div
     style="position:absolute; width:380px; height: 100%; overflow:auto; float:left; padding-left:10px; padding-right:10px;">
+    <h1> Find Your Local Mind</h1>
     <h1>Map Search</h1>
     <!-- search box -->
     <div style="border:1px solid #ccc; background:#e5e5e5; padding:10px;">
