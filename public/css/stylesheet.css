@@ -111,12 +111,16 @@ max-height: 100vh;
 }
 
 #footer {
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
+  padding-left: 0%;
+  padding-right: 0%;
   width: 100%;
   background-color:black;
   text-align: center;
+  color: white;
+  font-size: 10px;
 }
 #spotify{
   background-image:"{{url('/images/spotify.png')}}";
