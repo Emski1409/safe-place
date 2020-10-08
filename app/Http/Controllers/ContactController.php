@@ -25,7 +25,7 @@ class ContactController extends Controller
             $contacts = Auth::user()->contacts;
            
 
-            return view('contacts/show',compact('contacts'));
+            return view('contacts/contacts',compact('contacts'));
         }
 
        

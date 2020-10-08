@@ -23,7 +23,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('personal') }}">My Page</a>
-                  <a class="dropdown-item" href="{{ route('contactpage') }}">Contacts</a>
+                  <a class="dropdown-item" href="{{ route('contacts.show') }}">Contacts</a>
                   <a class="dropdown-item" href="{{ route('image') }}">My Images</a>
                   <a class="dropdown-item" href="{{ route('general') }}">Get Help</a>
                   <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>

@@ -6,7 +6,6 @@
 @endsection
 
 @section('content') 
-  {{$contacts}}
   <div class="container">
     <div class= "row">
       <div class= "column-md-4">

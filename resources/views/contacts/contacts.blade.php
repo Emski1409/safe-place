@@ -6,18 +6,24 @@
 @section('content')
 
 <body id="my_img"> 
-  {{--  <div class="card-body">
-    <i class="far fa-address-book"></i> - use as card image
-              <h2>
-                {{ $contact->firstname}}
-              </h2>
-              
-
-              <p>
-                {{ $contact->Telephone }}
-              </p>
+<div class="container">
+    <div class= "row">
+      <div class= "column-md-4">
+        @foreach($contacts as $contact)
+        <div class="card">
+        <div style =color:black class="card-body">
+         <h2>
+            {{ $contact->firstname}}
+          </h2>
+          <p>
+            {{ $contact->telephone }}
+          </p>
+        </div>
+        </div>
+        @endforeach
       </div>
-    --}}
+    </div>
+  </div>
 
 
  

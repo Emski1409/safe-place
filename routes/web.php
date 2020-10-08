@@ -44,18 +44,14 @@ Route::get('/', function()
       return View::make('pages.general');
   })->name('general');
 
-  Route::get('/contacts', function () 
-  {
-      return View::make('contacts.contacts');
-  })->name('contactpage');
-
   Route::get('/local', function () 
   {
       return View::make('pages.local');
   })->name('local');
 
 
- Route::get('contacts.contacts/{contact}', [ContactController::class, 'show'])->name('contacts.show');
+ Route::get('/contacts/{contact}', [ContactController::class, 'show'])->name('contacts.show');
+ Route::get('/contacts', [ContactController::class, 'show'])->name('contacts.show');
 
 Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.store');
 

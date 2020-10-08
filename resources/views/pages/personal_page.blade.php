@@ -23,7 +23,7 @@
       <div id="personallinks" class="container">
        <div class="row">
             <div class="col-md-4">
-              <a href="{{ route('contactpage') }}">
+              <a href="{{ route('contacts.show') }}">
                 <img src="{{url('/images/contact.png')}}" class="img-thumbnail" alt="tiger"> 
                   <h5>
                       My Contacts
@@ -37,7 +37,7 @@
                   </h5>
             </div>
             <div class="col-md-4">
-                  <a href="{{ route('contactpage') }}">
+                  <a href="{{ route('local') }}">
                   <img src="{{url('/images/community.png')}}" class="img-thumbnail" alt="tiger"> 
                       <h5>
                       Local Activities
